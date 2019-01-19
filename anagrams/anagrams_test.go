@@ -20,7 +20,7 @@ func (orr OneResultWordRepo) Search(pattern string, limit int) ([]string, error)
 	return nil, nil
 }
 
-// FakeWordRepo allways returns a result
+// FakeWordRepo always returns a result
 type FakeWordRepo struct{}
 
 // Search alwyas returns a result
@@ -33,7 +33,7 @@ func (fwr FakeWordRepo) Search(pattern string, limit int) ([]string, error) {
  * checks for correct number (n!)
  * of permutations
  */
-func TestPermutations(t *testing.T) {
+func TestPermutationsCount(t *testing.T) {
 	af := AnagramFinder{
 		wr: FakeWordRepo{},
 	}
@@ -56,9 +56,8 @@ func TestPermutations(t *testing.T) {
 }
 
 /**
- * TestPrefixes asserts that if a word repo only
- * validates words with a certain set of prefixes,
- * all anagrams should have that prefix.
+ * TestPrefixes asserts that if a word only
+ * has one anagram, one and only one will be found.
  */
 func TestPrefixes(t *testing.T) {
 	result := "arcm"
@@ -78,3 +77,5 @@ func TestPrefixes(t *testing.T) {
 		t.Fail()
 	}
 }
+
+// TODO: Test to make sure all anagrams are unique.

@@ -16,7 +16,6 @@ func (af AnagramFinder) getEnglishPermutations(b []byte, left, right int, perms 
 		perm := string(b)
 		*perms = append(*perms, perm)
 	} else {
-
 		for i := left; i <= right; i++ {
 			b[i], b[left] = b[left], b[i]
 			prefix := string(b[0 : i+1])
