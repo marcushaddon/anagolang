@@ -35,7 +35,7 @@ func (fwr FakeWordRepo) Search(pattern string, limit int) ([]string, error) {
  */
 func TestPermutationsCount(t *testing.T) {
 	af := AnagramFinder{
-		wr: FakeWordRepo{},
+		WordRepo: FakeWordRepo{},
 	}
 
 	word := "adongfish"
@@ -67,7 +67,7 @@ func TestPrefixes(t *testing.T) {
 	}
 
 	af := AnagramFinder{
-		wr: wr,
+		WordRepo: wr,
 	}
 
 	anagrams := af.GetAnagrams("cram")

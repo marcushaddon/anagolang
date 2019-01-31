@@ -7,7 +7,7 @@ type WordRepository interface {
 
 // AnagramFinder finds all anagrams
 type AnagramFinder struct {
-	wr WordRepository
+	WordRepo WordRepository
 }
 
 // TODO: handle errors!
@@ -19,7 +19,7 @@ func (af AnagramFinder) getEnglishPermutations(b []byte, left, right int, perms 
 		for i := left; i <= right; i++ {
 			b[i], b[left] = b[left], b[i]
 			prefix := string(b[0 : i+1])
-			result, _ := af.wr.Search(prefix, 1)
+			result, _ := af.WordRepo.Search(prefix, 1)
 			if len(result) > 0 {
 				af.getEnglishPermutations(b, left+1, right, perms)
 			}
